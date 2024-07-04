@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "788488104735",
+    "project_id": "certamen3entrega",
+    "storage_bucket": "certamen3entrega.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788488104735:android:6e1b9a89264f15b3d99e2a",
+        "android_client_info": {
+          "package_name": "cl.certamen3.app_c3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpR3wONh2dPaNZoaap25DqmV4ouyISyQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
