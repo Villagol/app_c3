@@ -1,5 +1,6 @@
 import 'package:app_c3/pages/cantantes_agregar.dart';
 import 'package:app_c3/services/firestore_service.dart';
+import 'package:app_c3/widgets/app_drawer.dart';
 import 'package:app_c3/widgets/campo_cantante.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -21,16 +22,23 @@ class _CantantesPageState extends State<CantantesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Cantantes',
-          style: TextStyle(color: Colors.white),
-        ),
-        leading: Icon(
-          Icons.mic,
-          color: Colors.white,
+        title: Row(
+          children: [
+            Icon(
+              Icons.mic,
+              color: Colors.white,
+            ),
+            SizedBox(width: 10),
+            Text(
+              'Cantantes',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
         ),
         backgroundColor: Colors.black,
       ),
+
+      drawer: AppDrawer(), // Añadir el AppDrawer aquí
       body: Padding(
         padding: EdgeInsets.all(10),
         child: StreamBuilder(
