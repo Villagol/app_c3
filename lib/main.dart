@@ -1,5 +1,3 @@
-import 'package:app_c3/pages/cantantes_page.dart';
-import 'package:app_c3/pages/home.dart';
 import 'package:app_c3/pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
