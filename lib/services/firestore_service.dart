@@ -14,6 +14,13 @@ class FirestoreService {
     return FirebaseFirestore.instance.collection('generos').get();
   }
 
+  Stream<QuerySnapshot> conciertos() {
+    return FirebaseFirestore.instance
+        .collection('conciertos')
+        .orderBy('capacidad')
+        .snapshots();
+  }
+
   //Insertar cantante en bd
   Future<void> cantanteAgregar(String nombre, String apellido, String apodo,
       int edad, DateTime fecha_nacimiento, String nacionalidad, String genero) {
@@ -34,5 +41,12 @@ class FirestoreService {
         .collection('cantantes')
         .doc(docId)
         .delete();
+  }
+
+  Stream<QuerySnapshot> generosLista() {
+    return FirebaseFirestore.instance
+        .collection('generos')
+        .orderBy('nombre')
+        .snapshots();
   }
 }

@@ -1,3 +1,5 @@
+import 'package:app_c3/pages/conciertos_page.dart';
+import 'package:app_c3/pages/generos_page.dart';
 import 'package:app_c3/services/autentificacion_google.dart';
 import 'package:flutter/material.dart';
 import 'package:app_c3/pages/cantantes_page.dart';
@@ -49,6 +51,30 @@ class AppDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => CantantesPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(MdiIcons.stadium),
+              title: Text('Conciertos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ConciertosPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(MdiIcons.music),
+              title: Text('Generos'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GenerosPage(),
                   ),
                 );
               },

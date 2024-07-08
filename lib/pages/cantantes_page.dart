@@ -27,19 +27,20 @@ class _CantantesPageState extends State<CantantesPage> {
           children: [
             Icon(
               Icons.mic,
-              color: Colors.white,
+              color: Color(0xFF3199c9),
             ),
             SizedBox(width: 10),
             Text(
               'Cantantes',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Color(0xFF3199c9)),
             ),
           ],
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xFF1b141a),
       ),
 
-      drawer: AppDrawer(), // Añadir el AppDrawer aquí
+      drawer: AppDrawer(),
+      backgroundColor: Color(0xFFdedbde), // Añadir el AppDrawer aquí
       body: Padding(
         padding: EdgeInsets.all(10),
         child: StreamBuilder(
@@ -63,7 +64,7 @@ class _CantantesPageState extends State<CantantesPage> {
                         SlidableAction(
                           icon: MdiIcons.deleteOutline,
                           label: 'Borrar',
-                          backgroundColor: Colors.black,
+                          backgroundColor: Color(0xFF1b141a),
                           onPressed: (context) {
                             confirmarBorrado(context, cantante.id);
                           },

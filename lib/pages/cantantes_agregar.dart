@@ -25,12 +25,14 @@ class _CantantesAgregarState extends State<CantantesAgregar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Color(0xFF3199c9)),
         title: Text(
           'Agregar cantante',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Color(0xFF3199c9)),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xFF1b141a),
       ),
+      backgroundColor: Color(0xFFdedbde),
       body: Form(
         key: formKey,
         child: Padding(
@@ -174,8 +176,8 @@ class _CantantesAgregarState extends State<CantantesAgregar> {
                 margin: EdgeInsets.only(top: 10),
                 width: double.infinity,
                 child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.black),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF1b141a)),
                   child: Text(
                     'Agregar cantante',
                     style: TextStyle(color: Colors.white),
