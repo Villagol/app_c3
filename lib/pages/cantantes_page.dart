@@ -22,6 +22,7 @@ class _CantantesPageState extends State<CantantesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Color(0xFF3199c9)),
         title: Row(
           children: [
             Icon(

@@ -1,11 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_c3/pages/Home.dart';
+import 'package:app_c3/services/autentificacion_google.dart'; // Asegúrate de importar correctamente tu servicio de autenticación
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    final AutenticacionGoogle _authService = AutenticacionGoogle();
+
     return Scaffold(
       backgroundColor: Color(0xFF1b141a),
       body: Center(
@@ -52,7 +56,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              ElevatedButton(
+              ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF3199c9),
                   foregroundColor: Color(0xFF1b141a),
@@ -61,16 +65,30 @@ class LoginPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomePage(),
-                    ),
-                  );
+                onPressed: () async {
+                  User? user = await _authService.autentificacion_google();
+                  if (user != null) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Inicio de sesión con Google fallido'),
+                      ),
+                    );
+                  }
                 },
-                child: Text(
-                  'Ingresar',
+                icon: Image.asset(
+                  'assets/img/google_icon.png',
+                  height: 24.0,
+                  width: 24.0,
+                ),
+                label: Text(
+                  'Ingresar con Google',
                   style: TextStyle(
                     color: Color(0xFFdedbde),
                     fontSize: 16,

@@ -1,10 +1,15 @@
+import 'package:app_c3/services/autentificacion_google.dart';
+import 'package:flutter/material.dart';
 import 'package:app_c3/pages/cantantes_page.dart';
 import 'package:app_c3/pages/home.dart';
 import 'package:app_c3/pages/login.dart';
+import 'package:app_c3/pages/perfil_page.dart';
+
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
+  final AutenticacionGoogle _authService = AutenticacionGoogle();
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -48,27 +53,29 @@ class AppDrawer extends StatelessWidget {
                 );
               },
             ),
-            /*ListTile(
-              leading: Icon(MdiIcons.accountGroup),
-              title: Text('Conciertos'),
+            ListTile(
+              leading: Icon(MdiIcons.account),
+              title: Text('Perfil'),
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ConciertoPage(),
+                    builder: (context) => PerfilPage(),
                   ),
                 );
               },
-            ),*/
+            ),
             ListTile(
               leading: Icon(MdiIcons.accountOff),
               title: Text('Cerrar Sesión'),
-              onTap: () {
-                Navigator.push(
+              onTap: () async {
+                await _authService.signOut();
+                Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
                     builder: (context) => LoginPage(),
                   ),
+                  (Route<dynamic> route) => false,
                 );
               },
             ),
