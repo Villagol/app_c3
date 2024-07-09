@@ -12,7 +12,7 @@ class PerfilPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Perfil'),
+        title: Text('Perfil', style: TextStyle(color: Color(0xFF3199c9))),
         iconTheme: IconThemeData(color: Color(0xFF3199c9)),
         backgroundColor: Color(0xFF1b141a),
       ),

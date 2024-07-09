@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_c3/pages/Home.dart';
-import 'package:app_c3/services/autentificacion_google.dart'; // Asegúrate de importar correctamente tu servicio de autenticación
+import 'package:app_c3/services/autentificacion_google.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key});
