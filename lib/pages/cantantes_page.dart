@@ -72,7 +72,7 @@ class _CantantesPageState extends State<CantantesPage> {
                       ],
                     ),
                     child: ListTile(
-                      leading: (Icon(Icons.account_box_outlined)),
+                      leading: (Icon(MdiIcons.accountOutline)),
                       title: Text(
                           '${cantante['nombre']} ${cantante['apellido']} (${cantante['apodo']})'),
                       subtitle: Text('${cantante['nacionalidad']}'),
@@ -144,10 +144,11 @@ void mostrarInfoCantante(BuildContext context, cantante) {
             child: Column(
               children: [
                 CampoCantante(
-                    dato: '${cantante['nombre']} ${cantante['apellido']}',
+                    dato: '${cantante['nombre']} ${cantante['apellido']}'
+                        ' | ${cantante['apodo']}',
                     icono: Icons.add_reaction_outlined),
                 CampoCantante(
-                    dato: '${cantante['apodo']}',
+                    dato: 'Proximo show en: ${cantante['concierto']}',
                     icono: Icons.person_pin_circle),
                 CampoCantante(
                     dato: formatoFecha

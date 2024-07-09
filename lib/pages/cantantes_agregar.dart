@@ -20,6 +20,7 @@ class _CantantesAgregarState extends State<CantantesAgregar> {
   DateTime fecha_nacimiento = DateTime.now();
   final formatoFecha = DateFormat('dd-MM-yyyy');
   String genero = '';
+  String concierto = '';
 
   @override
   Widget build(BuildContext context) {
@@ -172,6 +173,34 @@ class _CantantesAgregarState extends State<CantantesAgregar> {
                   }
                 },
               ),
+              FutureBuilder(
+                future: FirestoreService().conciertoss(),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (!snapshot.hasData ||
+                      snapshot.connectionState == ConnectionState.waiting) {
+                    return Text('Cargando conciertos...');
+                  } else {
+                    var conciertos = snapshot.data!.docs;
+                    return DropdownButtonFormField<String>(
+                      value:
+                          concierto == '' ? conciertos[0]['lugar'] : concierto,
+                      decoration: InputDecoration(labelText: 'Conciertos'),
+                      items:
+                          conciertos.map<DropdownMenuItem<String>>((concierto) {
+                        return DropdownMenuItem<String>(
+                          child: Text(concierto['lugar']),
+                          value: concierto['lugar'],
+                        );
+                      }).toList(),
+                      onChanged: (conciertoSeleccionado) {
+                        setState(() {
+                          this.concierto = conciertoSeleccionado!;
+                        });
+                      },
+                    );
+                  }
+                },
+              ),
               Container(
                 margin: EdgeInsets.only(top: 10),
                 width: double.infinity,
@@ -192,6 +221,7 @@ class _CantantesAgregarState extends State<CantantesAgregar> {
                         this.fecha_nacimiento,
                         nacionalidadCtrl.text.trim(),
                         this.genero,
+                        this.concierto,
                       );
                       Navigator.pop(context);
                     }
