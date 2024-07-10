@@ -49,13 +49,11 @@ class HomePage extends StatelessWidget {
               height: 400.0,
               viewportFraction: 0.8,
               enlargeCenterPage: true,
-              enableInfiniteScroll: true, // Hacer scroll infinito
-              autoPlay: true, // Reproducción automática
-              autoPlayInterval:
-                  Duration(seconds: 5), // Intervalo de cambio automático
-              autoPlayAnimationDuration: Duration(
-                  milliseconds: 800), // Duración de la animación de cambio
-              autoPlayCurve: Curves.fastOutSlowIn, // Curva de animación
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 5),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
             ),
             items: [
               // Item 1: ConciertosPage
